@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CodeNest Registration</title>
+
+    <style>
+        body {
+            background: lightblue;
+            font-family: Arial;
+        }
+
+        .box {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h2>CodeNest Registration</h2>
+
+        <form onsubmit="return validate()">
+
+            Name:
+            <input type="text" id="name">
+
+            <br><br>
+
+            Phone:
+            <input type="text" id="phone">
+
+            <br><br>
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+        <p id="result"></p>
+
+    </div>
+
+    <script>
+        function validate() {
+
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+
+            if (name == "" || phone == "") {
+                document.getElementById("result").innerHTML = "Fill all fields";
+            }
+
+            else if (!/^[0-9]{10}$/.test(phone)) {
+                document.getElementById("result").innerHTML = "Enter 10 digit phone number";
+            }
+
+            else {
+                document.getElementById("result").innerHTML = "Registration Successful!";
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>
